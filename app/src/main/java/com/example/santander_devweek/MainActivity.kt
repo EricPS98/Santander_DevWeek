@@ -2,14 +2,16 @@ package com.example.santander_devweek
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val medicamento = Medicamento("Teste 1", "2x ao dia")
+        setSupportActionBar(findViewById(R.id.toolbar))
     }
 
     /* ------------------- Testes para familiarização com o Kotlin ---------------
@@ -43,5 +45,20 @@ class MainActivity : AppCompatActivity() {
    }
    --------------------------------------------------------------------------*/
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflate = menuInflater
+        inflate.inflate(R.menu.main_menu, menu) // R = Resources, o "inflate" esta buscando o caminho do layout do menu
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) { //quando o identificador do menu for acionado
+            R.id.item1 -> {
+                Log.d("Click", "Click no item 1")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
 }
