@@ -1,17 +1,43 @@
-package com.example.santander_devweek
+package com.example.santander_devweek.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.santander_devweek.R
+import com.example.santander_devweek.data.Conta
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        buscarContaCliente()
+
+    }
+
+    private fun buscarContaCliente(){
+    mainViewModel.buscarContaCliente().observe(this, Observer { result ->
+        bindOnView(result)
+        })
+    }
+
+    private fun bindOnView(conta: Conta){
+        findViewById<TextView>(R.id.tv_usuario_value).text = conta.cliente.nome
+        findViewById<TextView>(R.id.tv_agencia_value).text = conta.agencia
+        findViewById<TextView>(R.id.tv_conta_corrente_value).text = conta.numero
+        findViewById<TextView>(R.id.tv_saldo_value).text = conta.saldo
+        findViewById<TextView>(R.id.tv_limite_value).text = conta.limite
+        findViewById<TextView>(R.id.tv_cartao_final_value).text = conta.cartao.numeroCartao
     }
 
     /* ------------------- Testes para familiarização com o Kotlin ---------------

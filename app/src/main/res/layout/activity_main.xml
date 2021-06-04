@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -43,18 +43,30 @@
             android:id="@+id/tv_usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Olá, Eric"
+            android:text="@string/txt_ola"
             android:layout_margin="16dp"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+    <TextView
+        android:id="@+id/tv_usuario_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xxxx"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@id/tv_usuario"
+        app:layout_constraintTop_toTopOf="@id/tv_usuario"
+        />
 
 
     <TextView
         android:id="@+id/tv_agencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ag 2030"
+        android:text="Ag"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/white"
@@ -62,15 +74,37 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_usuario"/>
 
     <TextView
+        android:id="@+id/tv_agencia_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xxxx"
+        android:textColor="@color/white"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@id/tv_agencia"
+        app:layout_constraintTop_toTopOf="@id/tv_agencia"
+        />
+
+    <TextView
         android:id="@+id/tv_conta_corrente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CC 0122112-5"
+        android:text="CC"
         android:textStyle="bold"
         android:layout_marginLeft="16dp"
         android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@+id/tv_agencia"
-        app:layout_constraintTop_toTopOf="@+id/tv_agencia"/>
+        app:layout_constraintStart_toEndOf="@+id/tv_agencia_value"
+        app:layout_constraintTop_toTopOf="@+id/tv_agencia_value"/>
+
+    <TextView
+        android:id="@+id/tv_conta_corrente_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xxxxx-x"
+        android:textColor="@color/white"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@id/tv_conta_corrente"
+        app:layout_constraintTop_toTopOf="@id/tv_conta_corrente"
+        />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mcv_conta"
@@ -121,13 +155,26 @@
                 android:id="@+id/tv_saldo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="R$ 1.200,00"
+                android:text="R$ "
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginTop="24dp"
                 app:layout_constraintTop_toBottomOf="@id/tv_saldo_disponivel"
                 app:layout_constraintStart_toStartOf="@id/iv_saldo"/>
+
+            <TextView
+                android:id="@+id/tv_saldo_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x.xxx,xx"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_saldo"
+                app:layout_constraintTop_toTopOf="@id/tv_saldo"
+                />
 
             <TextView
                 android:id="@+id/tv_saldo_limite"
@@ -139,13 +186,23 @@
                 app:layout_constraintStart_toStartOf="@id/tv_saldo"/>
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/tv_limite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/tv_saldo_limite"
                 app:layout_constraintTop_toTopOf="@id/tv_saldo_limite"
-                android:text="RS 2.345,00"
+                android:text="RS"
                 android:layout_marginLeft="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_limite_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x.xxx,xx"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_limite"
+                app:layout_constraintTop_toTopOf="@id/tv_limite"
+                />
 
             <View
                 android:id="@+id/linha"
@@ -153,7 +210,7 @@
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
                 android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_saldo_limite"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_limite"/>
 
             <TextView
                 android:id="@+id/tv_extrato"
@@ -311,7 +368,7 @@
         android:id="@+id/tv_cartao_final_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0033"
+        android:text="xxxx"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginLeft="16dp"
