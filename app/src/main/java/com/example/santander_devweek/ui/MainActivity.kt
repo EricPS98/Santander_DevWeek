@@ -37,8 +37,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_conta_corrente_value).text = conta.numero
         findViewById<TextView>(R.id.tv_saldo_value).text = conta.saldo
         findViewById<TextView>(R.id.tv_limite_value).text = conta.limite
-        findViewById<TextView>(R.id.tv_cartao_final_value).text = conta.cartao.numeroCartao
+        findViewById<TextView>(R.id.tv_cartao_final_value).text = conta.cartao.numeroCartao.substring(startIndex = 9)
+
     }
+
 
     /* ------------------- Testes para familiarização com o Kotlin ---------------
 
